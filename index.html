@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackMyPlay - Smart Music Practice Tracker</title>
+    <meta name="description" content="TrackMyPlay automatically tracks your music practice sessions using advanced AI. No timers needed - just play your instrument and let our smart technology handle the rest.">
+    <meta name="keywords" content="music practice tracker, automatic practice tracking, music app, piano practice, guitar practice, violin practice, music education">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/trackmyplay/">
+    <meta property="og:title" content="TrackMyPlay - Smart Music Practice Tracker">
+    <meta property="og:description" content="Automatically track your music practice sessions with AI-powered instrument detection.">
+    <meta property="og:image" content="https://yourusername.github.io/trackmyplay/app-icon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/trackmyplay/">
+    <meta property="twitter:title" content="TrackMyPlay - Smart Music Practice Tracker">
+    <meta property="twitter:description" content="Automatically track your music practice sessions with AI-powered instrument detection.">
+    <meta property="twitter:image" content="https://yourusername.github.io/trackmyplay/app-icon.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 50%, #AF52DE 100%);
+            text-align: center;
+            padding: 80px 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            margin: 0 auto 30px;
+            background: url('icons/icon.svg') center center;
+            background-size: contain;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B35 0%, #34C759 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .features {
+            background: linear-gradient(135deg, #f8f9fa 0%, rgba(0, 122, 255, 0.05) 50%, rgba(175, 82, 222, 0.05) 100%);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(0, 122, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(175, 82, 222, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 60%, rgba(88, 86, 214, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature:nth-child(1) {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.1), rgba(0, 122, 255, 0.05));
+            border-color: rgba(0, 122, 255, 0.2);
+        }
+
+        .feature:nth-child(2) {
+            background: linear-gradient(135deg, rgba(88, 86, 214, 0.1), rgba(88, 86, 214, 0.05));
+            border-color: rgba(88, 86, 214, 0.2);
+        }
+
+        .feature:nth-child(3) {
+            background: linear-gradient(135deg, rgba(175, 82, 222, 0.1), rgba(175, 82, 222, 0.05));
+            border-color: rgba(175, 82, 222, 0.2);
+        }
+
+        .feature:nth-child(4) {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.05));
+            border-color: rgba(255, 107, 53, 0.2);
+        }
+
+        .feature:nth-child(5) {
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.1), rgba(52, 199, 89, 0.05));
+            border-color: rgba(52, 199, 89, 0.2);
+        }
+
+        .feature:nth-child(6) {
+            background: linear-gradient(135deg, rgba(88, 86, 214, 0.1), rgba(175, 82, 222, 0.05));
+            border-color: rgba(88, 86, 214, 0.2);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature:nth-child(1):hover { border-color: #007AFF; }
+        .feature:nth-child(2):hover { border-color: #5856D6; }
+        .feature:nth-child(3):hover { border-color: #AF52DE; }
+        .feature:nth-child(4):hover { border-color: #FF6B35; }
+        .feature:nth-child(5):hover { border-color: #34C759; }
+        .feature:nth-child(6):hover { border-color: #5856D6; }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature:nth-child(1) .feature-icon { color: #007AFF; }
+        .feature:nth-child(2) .feature-icon { color: #5856D6; }
+        .feature:nth-child(3) .feature-icon { color: #AF52DE; }
+        .feature:nth-child(4) .feature-icon { color: #FF6B35; }
+        .feature:nth-child(5) .feature-icon { color: #34C759; }
+        .feature:nth-child(6) .feature-icon { color: #5856D6; }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .screenshots {
+            background: linear-gradient(135deg, #5856D6 0%, #AF52DE 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .screenshots h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .screenshots-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+        }
+
+        .screenshot-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .screenshot-item img {
+            max-width: 250px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .screenshot-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .screenshot-item p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .privacy {
+            background: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .privacy h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .privacy p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="app-icon"></div>
+            <h1>TrackMyPlay</h1>
+            <p>Your Smart Practice Companion - Automatically Track Every Note</p>
+            <a href="https://apps.apple.com/app/trackmyplay/id6749202240" class="download-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px; vertical-align: -2px;">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                Download on App Store
+            </a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="container">
+            <h2>Features That Work Like Magic</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Automatic Detection</h3>
+                    <p>Advanced AI recognizes when you're playing piano, guitar, violin, and more. No timers to start - just play!</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Analytics</h3>
+                    <p>Track practice time, streaks, and improvement metrics. See your musical journey with detailed insights.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Calibration</h3>
+                    <p>Adaptive technology learns your instrument's unique sound for perfect tracking accuracy.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Live Activities</h3>
+                    <p>Real-time practice progress on your lock screen with iOS 16.1+ Live Activities integration.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Achievement System</h3>
+                    <p>Stay motivated with practice streaks, milestones, and personalized achievements.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Clean, distraction-free interface with dark mode support and iPad optimization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="screenshots">
+        <div class="container">
+            <h2>See TrackMyPlay in Action</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="iphone/iPhone - 1.png" alt="TrackMyPlay main screen showing instrument selection">
+                    <h3>Choose Your Instrument</h3>
+                    <p>Select from Piano, Guitar, Violin and more. TrackMyPlay supports multiple instruments with dedicated recognition profiles.</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="iphone/iPhone - 2.png" alt="Live practice tracking with audio waveform">
+                    <h3>Real-Time Tracking</h3>
+                    <p>Watch your practice session come alive with real-time audio visualization and precise time tracking.</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="iphone/iPhone - 3.png" alt="Detailed practice statistics and analytics">
+                    <h3>Detailed Analytics</h3>
+                    <p>Track your progress with comprehensive statistics, practice streaks, and efficiency metrics.</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="iphone/iPhone - 5.png" alt="Instrument calibration settings">
+                    <h3>Smart Calibration</h3>
+                    <p>Calibrate TrackMyPlay to your instrument's unique sound for maximum accuracy and precision.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="privacy">
+        <div class="container">
+            <h2>🔒 Privacy First</h2>
+            <p>
+                All audio processing happens directly on your device. No recordings are stored, transmitted, or shared. 
+                Your practice data stays completely private and secure. We believe your musical journey should remain yours alone.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 TrackMyPlay. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="support.html">Support</a>
+                    <a href="mailto:fretio0719@gmail.com">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "TrackMyPlay",
+        "operatingSystem": "iOS",
+        "applicationCategory": "MusicApplication",
+        "description": "Smart music practice tracker that automatically detects instrument playing using AI technology.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127"
+        }
+    }
+    </script>
+</body>
+</html>

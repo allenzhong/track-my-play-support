@@ -3,168 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - TrackMyPlay</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background: #f8f9fa;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 { color: #007AFF; margin-bottom: 30px; }
-        h2 { color: #333; margin-top: 30px; margin-bottom: 15px; }
-        .faq-item { margin-bottom: 25px; }
-        .faq-question { font-weight: 600; margin-bottom: 10px; }
-        .contact-box { 
-            background: #f8f9fa; 
-            padding: 20px; 
-            border-radius: 8px; 
-            margin-top: 30px; 
-            text-align: center;
-        }
-        .feature-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        .feature-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .feature-card img {
-            max-width: 200px;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .feature-card h3 {
-            color: #5856D6;
-            margin-bottom: 10px;
-        }
-        a { color: #007AFF; }
-    </style>
+    <title>TrackMyPlay Support</title>
+    <meta name="description" content="TrackMyPlay support for version 1.1, including troubleshooting, supported instruments, system requirements, and contact details.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Support</h1>
-
-        <h2>App Features</h2>
-        <div class="feature-showcase">
-            <div class="feature-card">
-                <img src="iphone/iPhone - 1.png" alt="TrackMyPlay instrument selection">
-                <h3>Multiple Instruments</h3>
-                <p>Choose from Piano, Guitar, Violin, and more with visual instrument selection.</p>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="container">
+                <a class="brand" href="index.html">
+                    <img class="brand-mark" src="icons/icon.svg" alt="TrackMyPlay icon">
+                    <span>
+                        <span class="brand-name">TrackMyPlay</span>
+                        <span class="brand-tag">Support and troubleshooting</span>
+                    </span>
+                </a>
+                <nav class="nav" aria-label="Primary">
+                    <a href="index.html">Home</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#requirements">Requirements</a>
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-of-service.html">Terms</a>
+                </nav>
             </div>
-            <div class="feature-card">
-                <img src="iphone/iPhone - 2.png" alt="Real-time practice tracking">
-                <h3>Live Tracking</h3>
-                <p>Real-time audio visualization and session tracking with pause/resume controls.</p>
+        </header>
+
+        <main>
+            <section class="page-hero">
+                <div class="container">
+                    <div class="hero-copy page-hero-card">
+                        <span class="eyebrow">Support for version 1.1</span>
+                        <h1>Help that matches the current release.</h1>
+                        <p>
+                            This page is synced to the latest public release materials for TrackMyPlay 1.1 build 28. It reflects the current supported instruments, updated screenshots, and the privacy-first product story shipped with the latest App Store submission.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container help-grid">
+                    <article class="glass-card">
+                        <h3>Supported instruments</h3>
+                        <p>TrackMyPlay currently supports automatic active-practice tracking for piano, guitar, and violin.</p>
+                    </article>
+                    <article class="glass-card">
+                        <h3>Privacy model</h3>
+                        <p>Audio recognition happens on device. No raw recordings are uploaded, and no account is required to use the app.</p>
+                    </article>
+                    <article class="glass-card">
+                        <h3>Current contact</h3>
+                        <p>Public support email for this release: <a href="mailto:fretio0719@gmail.com">fretio0719@gmail.com</a>.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="faq">
+                <div class="container grid-2">
+                    <div class="glass-card support-faq">
+                        <span class="eyebrow">Frequently asked</span>
+                        <h3>How the app behaves</h3>
+
+                        <details class="faq-item" open>
+                            <summary>How does TrackMyPlay detect practice?</summary>
+                            <div class="faq-answer">
+                                <p>TrackMyPlay uses on-device audio detection to identify matched playing for the selected instrument. It focuses on active piano, guitar, or violin practice instead of simply timing how long the app stays open.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>What is the trust indicator for?</summary>
+                            <div class="faq-answer">
+                                <p>The trust feedback helps you see whether the app is hearing the selected instrument clearly enough. If trust is low, adjust your position, environment, or instrument setup before continuing.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Can I fix a session before it saves?</summary>
+                            <div class="faq-answer">
+                                <p>Yes. The session review flow lets you quickly correct the result and add a note before it becomes part of your history.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Does the app upload audio recordings?</summary>
+                            <div class="faq-answer">
+                                <p>No. Raw audio is not uploaded. Recognition happens locally on your device, and your practice data is stored locally unless you choose to export it.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="glass-card support-faq">
+                        <span class="eyebrow">Troubleshooting</span>
+                        <h3>If tracking feels off</h3>
+
+                        <details class="faq-item" open>
+                            <summary>The app is not detecting my practice reliably.</summary>
+                            <div class="faq-answer">
+                                <ul class="bullet-list">
+                                    <li>Confirm microphone access is enabled in iOS Settings.</li>
+                                    <li>Make sure the selected instrument matches what you are actually playing.</li>
+                                    <li>Try the calibration tools in settings if your instrument or room has a unique sound profile.</li>
+                                    <li>Reduce competing background sound and move the device closer to the instrument.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>My session result does not look right.</summary>
+                            <div class="faq-answer">
+                                <p>Use the session review step before saving. That flow exists specifically so you can correct timing and keep history accurate without needing to repeat the session.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Goals, reminders, or Live Activities are missing.</summary>
+                            <div class="faq-answer">
+                                <p>Check the settings screen to confirm goals and reminders are enabled. Live Activities also depend on iOS support and device settings for live updates.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>I still need help.</summary>
+                            <div class="faq-answer">
+                                <p>Email <a href="mailto:fretio0719@gmail.com">fretio0719@gmail.com</a> with your device model, iOS version, and a short description of what happened.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="requirements">
+                <div class="container grid-2">
+                    <article class="glass-card">
+                        <span class="eyebrow">System requirements</span>
+                        <h3>What you need</h3>
+                        <ul class="bullet-list">
+                            <li>iOS 18.5 or later</li>
+                            <li>Current release is submitted as an iPhone app</li>
+                            <li>Microphone permission enabled</li>
+                            <li>Enough storage for local session history and exports</li>
+                        </ul>
+                    </article>
+
+                    <article class="glass-card">
+                        <span class="eyebrow">Current release visuals</span>
+                        <h3>Support references the latest screenshots</h3>
+                        <div class="contact-stack">
+                            <img src="media/release-1.1/05-settings-controls.png" alt="TrackMyPlay settings screenshot">
+                            <p class="small-note">This support site now points to the refreshed 1.1 screenshot set from the release package so help content matches the shipped UI.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <article class="glass-card">
+                        <span class="eyebrow">Contact</span>
+                        <h3>Reach support directly</h3>
+                        <div class="contact-stack">
+                            <div class="contact-line"><strong>Email</strong> <a href="mailto:fretio0719@gmail.com">fretio0719@gmail.com</a></div>
+                            <div class="contact-line"><strong>App Store</strong> <a href="https://apps.apple.com/app/id6749202240">TrackMyPlay on the App Store</a></div>
+                            <div class="contact-line"><strong>Response time</strong> Usually within 24 hours</div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-card">
+                <div>
+                    <div class="brand-name">TrackMyPlay Support</div>
+                    <p class="muted">Built to stay aligned with the newest release materials.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="mailto:fretio0719@gmail.com">Contact</a>
+                </div>
             </div>
-            <div class="feature-card">
-                <img src="iphone/iPhone - 3.png" alt="Practice analytics and statistics">
-                <h3>Progress Analytics</h3>
-                <p>Detailed statistics, practice streaks, and efficiency metrics to track your improvement.</p>
-            </div>
-            <div class="feature-card">
-                <img src="iphone/iPhone - 5.png" alt="Instrument calibration">
-                <h3>Smart Calibration</h3>
-                <p>Calibrate the app to your instrument's unique sound for maximum accuracy.</p>
-            </div>
-        </div>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-            <div class="faq-question">How does automatic detection work?</div>
-            <p>TrackMyPlay uses advanced machine learning to recognize when you're playing your instrument. The AI analyzes audio patterns in real-time to detect practice sessions automatically.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Which instruments are supported?</div>
-            <p>Currently supported: Piano, Guitar, Violin, Cello, Flute, Clarinet, Saxophone, and Trumpet. We're continuously adding support for more instruments.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Why isn't my instrument being detected?</div>
-            <p>Try the calibration process in Settings → Calibration. This helps the app learn your instrument's unique sound characteristics for better detection.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Does the app work in the background?</div>
-            <p>TrackMyPlay works best when active on screen. For background tracking, ensure the app is open and your device isn't in low power mode.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Is my audio data private?</div>
-            <p>Absolutely! All audio processing happens on your device. No recordings are made, stored, or transmitted. Your practice sessions remain completely private.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">How accurate is the tracking?</div>
-            <p>After calibration, TrackMyPlay typically achieves 95%+ accuracy in detecting practice sessions. Accuracy improves over time as the system learns your playing patterns.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Can I export my practice data?</div>
-            <p>Yes! Go to Settings → Export Data to download your practice history in CSV format for use in spreadsheets or other applications.</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">What iOS version is required?</div>
-            <p>TrackMyPlay requires iOS 15.0 or later. Live Activities require iOS 16.1 or later.</p>
-        </div>
-
-        <h2>Troubleshooting</h2>
-
-        <div class="faq-item">
-            <div class="faq-question">App not detecting my practice</div>
-            <p>1. Check microphone permissions in iOS Settings → Privacy → Microphone<br>
-            2. Run calibration for your instrument<br>
-            3. Ensure you're in a quiet environment<br>
-            4. Try increasing audio sensitivity in app settings</p>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Practice sessions not saving</div>
-            <p>1. Ensure the app has sufficient storage space<br>
-            2. Check that you're not in low power mode<br>
-            3. Try restarting the app<br>
-            4. Contact support if the issue persists</p>
-        </div>
-
-        <h2>System Requirements</h2>
-        <ul>
-            <li>iOS 15.0 or later</li>
-            <li>iPhone 8 or newer, iPad (6th generation) or newer</li>
-            <li>Microphone access permission</li>
-            <li>~50MB available storage</li>
-        </ul>
-
-        <div class="contact-box">
-            <h3>Still Need Help?</h3>
-            <p>Can't find what you're looking for? We're here to help!</p>
-            <p><strong>Email:</strong> <a href="mailto:fretio0719@gmail.com">fretio0719@gmail.com</a></p>
-            <p><em>We typically respond within 24 hours</em></p>
-        </div>
-
-        <div style="margin-top: 40px; text-align: center;">
-            <a href="index.html">← Back to TrackMyPlay</a> | 
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="terms-of-service.html">Terms of Service</a>
-        </div>
+        </footer>
     </div>
 </body>
 </html>
